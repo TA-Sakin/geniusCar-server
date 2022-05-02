@@ -10,9 +10,6 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("running crud");
-});
 // const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.n13kp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
 const uri =
@@ -106,6 +103,15 @@ async function run() {
   }
 }
 run().catch(console.dir);
+
+app.get("/", (req, res) => {
+  res.send("running crud");
+});
+
+app.get("/hero", (req, res) => {
+  res.send("running hero");
+});
+
 
 app.listen(port, () => {
   console.log("server running", port);
